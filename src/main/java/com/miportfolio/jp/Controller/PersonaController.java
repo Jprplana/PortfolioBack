@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "https://miportfoliojpfront.web.app")
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
