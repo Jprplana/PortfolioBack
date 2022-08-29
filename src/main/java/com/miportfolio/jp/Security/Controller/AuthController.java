@@ -44,7 +44,7 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
     
-    @PostMapping(value = "/nuevo")
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos o email inválido"), HttpStatus.BAD_REQUEST);
@@ -73,7 +73,7 @@ public class AuthController {
         return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);
     }
     
-    @PostMapping(value = "/login")
+    @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);

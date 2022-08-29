@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/educacion")
+@RequestMapping("/educacion")
 @CrossOrigin(origins = "https://miportfoliojpfront.web.app")
 public class CEducacion {
     @Autowired
     SEducacion sEducacion;
     
-    @GetMapping(value = "/lista")
+    @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list() {
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/detail/{id}")
+    @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id) {
         if(!sEducacion.existsById(id)) {
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
@@ -42,7 +42,7 @@ public class CEducacion {
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
     
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if(!sEducacion.existsById(id)) {
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
@@ -51,7 +51,7 @@ public class CEducacion {
         return new ResponseEntity(new Mensaje("Educación eliminada"), HttpStatus.OK);
     }
     
-    @PostMapping(value = "/create")
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion) {
         if(StringUtils.isBlank(dtoeducacion.getNombreE())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -67,7 +67,7 @@ public class CEducacion {
         
     }
     
-    @PutMapping(value = "/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion) {
         if(!sEducacion.existsById(id)) {
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);

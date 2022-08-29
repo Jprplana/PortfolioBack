@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/explab")
+@RequestMapping("/explab")
 @CrossOrigin(origins = "https://miportfoliojpfront.web.app")
 public class CExperiencia {
     @Autowired
     SExperiencia sExperiencia;
     
-    @GetMapping(value = "/lista")
+    @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list() {
         List<Experiencia> list = sExperiencia.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
-    @GetMapping(value = "/detail/{id}")
+    @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -40,7 +40,7 @@ public class CExperiencia {
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
     
-    @PostMapping(value = "/create")
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp) {
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -54,7 +54,7 @@ public class CExperiencia {
         
     }
     
-    @PutMapping(value = "/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
@@ -74,7 +74,7 @@ public class CExperiencia {
         
     }
     
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if(!sExperiencia.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
