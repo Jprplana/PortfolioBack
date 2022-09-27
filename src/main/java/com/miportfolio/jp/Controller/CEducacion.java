@@ -21,11 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-<<<<<<< HEAD
 @CrossOrigin(origins = {"https://miportfoliojpfront.web.app", "https://localhost:4200"})
-=======
-@CrossOrigin(origins = "https://miportfoliojpfront.web.app")
->>>>>>> 87d022294441672a80be3db2ef92f01730379cc5
 public class CEducacion {
     @Autowired
     SEducacion sEducacion;
@@ -49,11 +45,7 @@ public class CEducacion {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if(!sEducacion.existsById(id)) {
-<<<<<<< HEAD
-            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
-=======
-            return new ResponseEntity(new Mensaje("No esiste el ID"), HttpStatus.NOT_FOUND);
->>>>>>> 87d022294441672a80be3db2ef92f01730379cc5
+            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);           
         }
         sEducacion.delete(id);
         return new ResponseEntity(new Mensaje("Educación eliminada"), HttpStatus.OK);

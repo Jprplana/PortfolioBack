@@ -30,34 +30,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-<<<<<<< HEAD
 @CrossOrigin(origins = {"https://miportfoliojpfront.web.app", "https://localhost:4200"})
-=======
-@CrossOrigin(origins = "https://miportfoliojpfront.web.app")
->>>>>>> 87d022294441672a80be3db2ef92f01730379cc5
 public class AuthController {
     
     @Autowired
     PasswordEncoder passwordEncoder;
-<<<<<<< HEAD
     @Autowired
     AuthenticationManager authenticationManager;
     @Autowired
     UsuarioService usuarioService;
     @Autowired
     RolService rolService;
-=======
-    
-    @Autowired
-    AuthenticationManager authenticationManager;
-    
-    @Autowired
-    UsuarioService usuarioService;
-    
-    @Autowired
-    RolService rolService;
-    
->>>>>>> 87d022294441672a80be3db2ef92f01730379cc5
     @Autowired
     JwtProvider jwtProvider;
     

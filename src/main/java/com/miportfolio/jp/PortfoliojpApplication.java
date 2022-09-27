@@ -23,11 +23,7 @@ public class PortfoliojpApplication {
 
         corsConfiguration.setAllowCredentials(true);
 
-<<<<<<< HEAD
         corsConfiguration.setAllowedOrigins(Arrays.asList("https://miportfoliojpfront.web.app","http://localhost:4200"));
-=======
-        corsConfiguration.setAllowedOrigins(Arrays.asList("https://miportfoliojpfront.web.app", "http://localhost:4200"));
->>>>>>> 87d022294441672a80be3db2ef92f01730379cc5
 
         corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
                 "Accept", "Authorization", "Origin, Accept", "X-Request-With",
